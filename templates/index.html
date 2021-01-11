@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Save the Pets</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='mbr-80x72.png')}}" type="image/x-icon">
+  </head>
+  <body style= "background-image: url({{ url_for('static', filename='1.jpg')}}); background-repeat: no-repeat; background-position: center; background-size: cover;">
+
+      <!-- Top Nav Bar-->
+      <!-- Image and text style from Bootstap  background-color: #DBA8AC; @media (min.width:768px); height:100vh;-->
+    <section>
+            <nav class="navbar navbar-light" style= "padding: 1%; background-color: #29274C; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+                <div class="container-fluid">
+                <a class="navbar-brand" style= "font-size: 24px; color: #F7FFF7;" href="#">
+                    <img src="{{ url_for('static', filename='mbr-80x72.png')}}" alt="" width="40" height="34" class="d-inline-block align-top">
+                    Save the Pets
+                </a>
+                </div>
+            </nav>
+      </section>
+
+      <!--Background image options-->
+      <!-- "background-image: url(main/pets.jpg); background-size: 100%; background-position:cover; @media (min.width:768px); height:100vh;" -->
+
+        <section>
+          <div class= "row align-items-center">
+            <div class= "col-lg col-sm col-md col-lg-5">
+              <!-- Form (Dropdown & Radio)-->
+              <div class= "leftside" style= "color: #29274C; height: 100%; width: 100%; padding-left: 15%; padding-right: 15%; padding-bottom: 15%; padding-top: 15%; align-content: flex-end;">
+                
+                  States: <select style= "width: 100%; padding: 16px 20px;
+                  border: none;
+                  border-radius: 4px;
+                  background-color: #f1f1f1;" name="states" id="states">
+                    <option value="" selected="selected">Select State</option>
+                  </select>
+                  <br><br>
+                  Cities: <select style= "width: 100%; padding: 16px 20px;
+                  border: none;
+                  border-radius: 4px;
+                  background-color: #f1f1f1;" name="cities" id="cities">
+                    <option value="" selected="selected">Please select state first</option>
+                  </select>
+                  <br><br>
+                  <div id="result"></div>   
+                  <br>                               
+                    <!-- Radio Buttons section -->
+                    <fieldset class="row mb-3">
+                      <legend class="col-form-label col-sm-2 pt-0">Sublink:</legend>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="sublink" id="gridRadios1" value="Services" style="background-color: #29274C;">
+                          <label class="form-check-label" for="gridRadios1">
+                            Services
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="sublink" id="gridRadios2" value="Community" checked style="background-color: #29274C;">
+                          <label class="form-check-label" for="gridRadios2">
+                            Community
+                          </label>
+                        </div>                    
+                      </div>
+                    </fieldset>                    
+                  <button type="submit" class="btn" style= "background-color: #29274C;
+                  border: none;
+                  color: white;
+                  padding: 16px 32px;
+                  text-decoration: none;
+                  margin: 4px 2px;
+                  cursor: pointer;
+                  float: right;" onclick="displayradioValue()">Create Links
+                </button>
+                </form>   
+              </div>   
+            </div>     
+              <!-- Grid Box-->
+              <style>
+                .button{
+                  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                  background-color: transparent;
+                  text-decoration: none; 
+                  text-align: center;
+                  color: black;
+                  display: inline-block;
+                  padding: 3%;                  
+                  cursor: pointer;
+                  font-size: 2vw;
+                }
+                .button0{
+                  border-top-left-radius: 12%; 
+                  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                  background-color: transparent;
+                  text-decoration: none; 
+                  color:black;
+                  text-align: center;
+                  display: inline-block;
+                  padding: 3%;
+                  cursor: pointer;
+                  font-size: 2vw;
+                }
+                .button1{
+                  border-top-right-radius: 12%; 
+                  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                  background-color: transparent;
+                  text-decoration: none; 
+                  color:black;
+                  text-align: center;
+                  display: inline-block;
+                  padding: 3%;
+                  cursor: pointer;
+                  font-size: 2vw;
+                }
+                .button2{
+                  border-bottom-right-radius: 12%; 
+                  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                  background-color: transparent;
+                  text-decoration: none; 
+                  color:black;
+                  text-align: center;
+                  display: inline-block;
+                  padding: 3%;
+                  cursor: pointer;
+                  font-size: 2vw;
+                }
+                .button3{
+                  border-bottom-left-radius: 12%; 
+                  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                  background-color: transparent;
+                  text-decoration: none; 
+                  color:black;
+                  text-align: center;
+                  display: inline-block;
+                  padding: 3%;
+                  cursor: pointer;
+                  font-size: 2vw;
+                }                
+              </style>
+              
+            <div class="col-lg col-sm col-md col-lg-7" style="border-top: 1px solid #29274C;"> 
+              <div class= "rightside" style= "height: 100%; width: 100%; padding-top: 15%; padding-bottom: 15%; text-align: center; align-content: flex-end;">             
+                        <div id="clinks" class="row-cols-4 g-5">
+                            <a target="_blank" class= "col btn-outline-light button0" href='https://www.craigslist.org'>AKC</a>
+                            <a target="_blank" class= "col btn-outline-light button" href='https://www.craigslist.org'>CKC</a>
+                            <a target="_blank" class= "col btn-outline-light button1" href='https://www.craigslist.org'>STUD</a>
+                            <a target="_blank" class= "col btn-outline-light button" href='https://www.craigslist.org'>dewormed</a>
+                            <a target="_blank" class= "col btn-outline-light button" href='https://www.craigslist.org'>kittens</a>
+                            <a target="_blank" class= "col btn-outline-light button" href='https://www.craigslist.org'>puppies</a>
+                            <a target="_blank" class= "col btn-outline-light button" href='https://www.craigslist.org'>pups</a>
+                            <a target="_blank" class= "col btn-outline-light button" href='https://www.craigslist.org'>homing</a>
+                            <a target="_blank" class= "col btn-outline-light button" href='https://www.craigslist.org'>Rehoming</a>
+                            <a target="_blank" class= "col btn-outline-light button3" href='https://www.craigslist.org'>Rehome</a>
+                            <a target="_blank" class= "col btn-outline-light button" href='https://www.craigslist.org'>Re-home</a>
+                            <a target="_blank" class= "col btn-outline-light button2" href='https://www.craigslist.org'>Re-homing</a>
+                        </div>
+                </div> 
+            </div>            
+          </div>  
+        </section>
+
+        <script>
+          var currlink = 'something'
+          var statesObject = {"Alabama": {"Auburn": "https://auburn.craigslist.org/", "Birmingham": "https://bham.craigslist.org/", "Dothan": "https://dothan.craigslist.org/", "Florence / Muscle Shoals": "https://shoals.craigslist.org/", "Gadsden-anniston": "https://gadsden.craigslist.org/", "Huntsville / Decatur": "https://huntsville.craigslist.org/", "Mobile": "https://mobile.craigslist.org/", "Montgomery": "https://montgomery.craigslist.org/", "Tuscaloosa": "https://tuscaloosa.craigslist.org/"}, "Alaska": {"Anchorage / Mat-su": "https://anchorage.craigslist.org/", "Fairbanks": "https://fairbanks.craigslist.org/", "Kenai Peninsula": "https://kenai.craigslist.org/", "Southeast Alaska": "https://juneau.craigslist.org/"}, "Arizona": {"Flagstaff / Sedona": "https://flagstaff.craigslist.org/", "Mohave County": "https://mohave.craigslist.org/", "Phoenix": "https://phoenix.craigslist.org/", "Prescott": "https://prescott.craigslist.org/", "Show Low": "https://showlow.craigslist.org/", "Sierra Vista": "https://sierravista.craigslist.org/", "Tucson": "https://tucson.craigslist.org/", "Yuma": "https://yuma.craigslist.org/"}, "Arkansas": {"Fayetteville": "https://fayar.craigslist.org/", "Fort Smith": "https://fortsmith.craigslist.org/", "Jonesboro": "https://jonesboro.craigslist.org/", "Little Rock": "https://littlerock.craigslist.org/", "Texarkana": "https://texarkana.craigslist.org/"}, "California": {"Bakersfield": "https://bakersfield.craigslist.org/", "Chico": "https://chico.craigslist.org/", "Fresno / Madera": "https://fresno.craigslist.org/", "Gold Country": "https://goldcountry.craigslist.org/", "Hanford-corcoran": "https://hanford.craigslist.org/", "Humboldt County": "https://humboldt.craigslist.org/", "Imperial County": "https://imperial.craigslist.org/", "Inland Empire": "https://inlandempire.craigslist.org/", "Los Angeles": "https://losangeles.craigslist.org/", "Mendocino County": "https://mendocino.craigslist.org/", "Merced": "https://merced.craigslist.org/", "Modesto": "https://modesto.craigslist.org/", "Monterey Bay": "https://monterey.craigslist.org/", "Orange County": "https://orangecounty.craigslist.org/", "Palm Springs": "https://palmsprings.craigslist.org/", "Redding": "https://redding.craigslist.org/", "Sacramento": "https://sacramento.craigslist.org/", "San Diego": "https://sandiego.craigslist.org/", "San Francisco Bay Area": "https://sfbay.craigslist.org/", "San Luis Obispo": "https://slo.craigslist.org/", "Santa Barbara": "https://santabarbara.craigslist.org/", "Santa Maria": "https://santamaria.craigslist.org/", "Siskiyou County": "https://siskiyou.craigslist.org/", "Stockton": "https://stockton.craigslist.org/", "Susanville": "https://susanville.craigslist.org/", "Ventura County": "https://ventura.craigslist.org/", "Visalia-tulare": "https://visalia.craigslist.org/", "Yuba-sutter": "https://yubasutter.craigslist.org/"}, "Colorado": {"Boulder": "https://boulder.craigslist.org/", "Colorado Springs": "https://cosprings.craigslist.org/", "Denver": "https://denver.craigslist.org/", "Eastern Co": "https://eastco.craigslist.org/", "Fort Collins / North Co": "https://fortcollins.craigslist.org/", "High Rockies": "https://rockies.craigslist.org/", "Pueblo": "https://pueblo.craigslist.org/", "Western Slope": "https://westslope.craigslist.org/"}, "Connecticut": {"Eastern Ct": "https://newlondon.craigslist.org/", "Hartford": "https://hartford.craigslist.org/", "New Haven": "https://newhaven.craigslist.org/", "Northwest Ct": "https://nwct.craigslist.org/"}, "Delaware": {"Delaware": "https://delaware.craigslist.org/"}, "District of Columbia": {"Washington": "https://washingtondc.craigslist.org/"}, "Florida": {"Broward County": "http://miami.craigslist.org/brw/", "Daytona Beach": "https://daytona.craigslist.org/", "Florida Keys": "https://keys.craigslist.org/", "Fort Lauderdale": "https://fortlauderdale.craigslist.org/", "Ft Myers / Sw Florida": "https://fortmyers.craigslist.org/", "Gainesville": "https://gainesville.craigslist.org/", "Heartland Florida": "https://cfl.craigslist.org/", "Jacksonville": "https://jacksonville.craigslist.org/", "Lakeland": "https://lakeland.craigslist.org/", "Miami / Dade": "http://miami.craigslist.org/mdc/", "North Central Fl": "https://lakecity.craigslist.org/", "Ocala": "https://ocala.craigslist.org/", "Okaloosa / Walton": "https://okaloosa.craigslist.org/", "Orlando": "https://orlando.craigslist.org/", "Panama City": "https://panamacity.craigslist.org/", "Pensacola": "https://pensacola.craigslist.org/", "Sarasota-bradenton": "https://sarasota.craigslist.org/", "South Florida": "https://miami.craigslist.org/", "Space Coast": "https://spacecoast.craigslist.org/", "St Augustine": "https://staugustine.craigslist.org/", "Tallahassee": "https://tallahassee.craigslist.org/", "Tampa Bay Area": "https://tampa.craigslist.org/", "Treasure Coast": "https://treasure.craigslist.org/", "Palm Beach County": "http://miami.craigslist.org/pbc/"}, "Georgia": {"Albany": "https://albanyga.craigslist.org/", "Athens": "https://athensga.craigslist.org/", "Atlanta": "https://atlanta.craigslist.org/", "Augusta": "https://augusta.craigslist.org/", "Brunswick": "https://brunswick.craigslist.org/", "Columbus": "https://columbusga.craigslist.org/", "Macon / Warner Robins": "https://macon.craigslist.org/", "Northwest Ga": "https://nwga.craigslist.org/", "Savannah / Hinesville": "https://savannah.craigslist.org/", "Statesboro": "https://statesboro.craigslist.org/", "Valdosta": "https://valdosta.craigslist.org/"}, "Hawaii": {"Hawaii": "https://honolulu.craigslist.org/"}, "Idaho": {"Boise": "https://boise.craigslist.org/", "East Idaho": "https://eastidaho.craigslist.org/", "Lewiston / Clarkston": "https://lewiston.craigslist.org/", "Twin Falls": "https://twinfalls.craigslist.org/"}, "Illinois": {"Bloomington-normal": "https://bn.craigslist.org/", "Champaign Urbana": "https://chambana.craigslist.org/", "Chicago": "https://chicago.craigslist.org/", "Decatur": "https://decatur.craigslist.org/", "La Salle Co": "https://lasalle.craigslist.org/", "Mattoon-charleston": "https://mattoon.craigslist.org/", "Peoria": "https://peoria.craigslist.org/", "Rockford": "https://rockford.craigslist.org/", "Southern Illinois": "https://carbondale.craigslist.org/", "Springfield": "https://springfieldil.craigslist.org/", "Western Il": "https://quincy.craigslist.org/"}, "Indiana": {"Bloomington": "https://bloomington.craigslist.org/", "Evansville": "https://evansville.craigslist.org/", "Fort Wayne": "https://fortwayne.craigslist.org/", "Indianapolis": "https://indianapolis.craigslist.org/", "Kokomo": "https://kokomo.craigslist.org/", "Lafayette / West Lafayette": "https://tippecanoe.craigslist.org/", "Muncie / Anderson": "https://muncie.craigslist.org/", "Richmond": "https://richmondin.craigslist.org/", "South Bend / Michiana": "https://southbend.craigslist.org/", "Terre Haute": "https://terrehaute.craigslist.org/"}, "Iowa": {"Ames": "https://ames.craigslist.org/", "Cedar Rapids": "https://cedarrapids.craigslist.org/", "Des Moines": "https://desmoines.craigslist.org/", "Dubuque": "https://dubuque.craigslist.org/", "Fort Dodge": "https://fortdodge.craigslist.org/", "Iowa City": "https://iowacity.craigslist.org/", "Mason City": "https://masoncity.craigslist.org/", "Quad Cities": "https://quadcities.craigslist.org/", "Sioux City": "https://siouxcity.craigslist.org/", "Southeast Ia": "https://ottumwa.craigslist.org/", "Waterloo / Cedar Falls": "https://waterloo.craigslist.org/"}, "Kansas": {"Lawrence": "https://lawrence.craigslist.org/", "Manhattan": "https://ksu.craigslist.org/", "Northwest Ks": "https://nwks.craigslist.org/", "Salina": "https://salina.craigslist.org/", "Southeast Ks": "https://seks.craigslist.org/", "Southwest Ks": "https://swks.craigslist.org/", "Topeka": "https://topeka.craigslist.org/", "Wichita": "https://wichita.craigslist.org/"}, "Kentucky": {"Bowling Green": "https://bgky.craigslist.org/", "Eastern Kentucky": "https://eastky.craigslist.org/", "Lexington": "https://lexington.craigslist.org/", "Louisville": "https://louisville.craigslist.org/", "Owensboro": "https://owensboro.craigslist.org/", "Western Ky": "https://westky.craigslist.org/"}, "Louisiana": {"Baton Rouge": "https://batonrouge.craigslist.org/", "Central Louisiana": "https://cenla.craigslist.org/", "Houma": "https://houma.craigslist.org/", "Lafayette": "https://lafayette.craigslist.org/", "Lake Charles": "https://lakecharles.craigslist.org/", "Monroe": "https://monroe.craigslist.org/", "New Orleans": "https://neworleans.craigslist.org/", "Shreveport": "https://shreveport.craigslist.org/"}, "Maine": {"Maine": "https://maine.craigslist.org/"}, "Maryland": {"Annapolis": "https://annapolis.craigslist.org/", "Baltimore": "https://baltimore.craigslist.org/", "Eastern Shore": "https://easternshore.craigslist.org/", "Frederick": "https://frederick.craigslist.org/", "Southern Maryland": "https://smd.craigslist.org/", "Western Maryland": "https://westmd.craigslist.org/"}, "Massachusetts": {"Boston": "https://boston.craigslist.org/", "Cape Cod / Islands": "https://capecod.craigslist.org/", "South Coast": "https://southcoast.craigslist.org/", "Western Massachusetts": "https://westernmass.craigslist.org/", "Worcester / Central Ma": "https://worcester.craigslist.org/"}, "Michigan": {"Ann Arbor": "https://annarbor.craigslist.org/", "Battle Creek": "https://battlecreek.craigslist.org/", "Central Michigan": "https://centralmich.craigslist.org/", "Detroit Metro": "https://detroit.craigslist.org/", "Flint": "https://flint.craigslist.org/", "Grand Rapids": "https://grandrapids.craigslist.org/", "Holland": "https://holland.craigslist.org/", "Jackson": "https://jxn.craigslist.org/", "Kalamazoo": "https://kalamazoo.craigslist.org/", "Lansing": "https://lansing.craigslist.org/", "Monroe": "https://monroemi.craigslist.org/", "Muskegon": "https://muskegon.craigslist.org/", "Northern Michigan": "https://nmi.craigslist.org/", "Port Huron": "https://porthuron.craigslist.org/", "Saginaw-midland-baycity": "https://saginaw.craigslist.org/", "Southwest Michigan": "https://swmi.craigslist.org/", "The Thumb": "https://thumb.craigslist.org/", "Upper Peninsula": "https://up.craigslist.org/"}, "Minnesota": {"Bemidji": "https://bemidji.craigslist.org/", "Brainerd": "https://brainerd.craigslist.org/", "Duluth / Superior": "https://duluth.craigslist.org/", "Mankato": "https://mankato.craigslist.org/", "Minneapolis / St Paul": "https://minneapolis.craigslist.org/", "Rochester": "https://rmn.craigslist.org/", "Southwest Mn": "https://marshall.craigslist.org/", "St Cloud": "https://stcloud.craigslist.org/"}, "Mississippi": {"Gulfport / Biloxi": "https://gulfport.craigslist.org/", "Hattiesburg": "https://hattiesburg.craigslist.org/", "Jackson": "https://jackson.craigslist.org/", "Meridian": "https://meridian.craigslist.org/", "North Mississippi": "https://northmiss.craigslist.org/", "Southwest Ms": "https://natchez.craigslist.org/"}, "Missouri": {"Columbia / Jeff City": "https://columbiamo.craigslist.org/", "Joplin": "https://joplin.craigslist.org/", "Kansas City": "https://kansascity.craigslist.org/", "Kirksville": "https://kirksville.craigslist.org/", "Lake Of The Ozarks": "https://loz.craigslist.org/", "Southeast Missouri": "https://semo.craigslist.org/", "Springfield": "https://springfield.craigslist.org/", "St Joseph": "https://stjoseph.craigslist.org/", "St Louis": "https://stlouis.craigslist.org/"}, "Montana": {"Billings": "https://billings.craigslist.org/", "Bozeman": "https://bozeman.craigslist.org/", "Butte": "https://butte.craigslist.org/", "Great Falls": "https://greatfalls.craigslist.org/", "Helena": "https://helena.craigslist.org/", "Kalispell": "https://kalispell.craigslist.org/", "Missoula": "https://missoula.craigslist.org/", "Eastern Montana": "https://montana.craigslist.org/"}, "Nebraska": {"Grand Island": "https://grandisland.craigslist.org/", "Lincoln": "https://lincoln.craigslist.org/", "North Platte": "https://northplatte.craigslist.org/", "Omaha / Council Bluffs": "https://omaha.craigslist.org/", "Scottsbluff / Panhandle": "https://scottsbluff.craigslist.org/"}, "Nevada": {"Elko": "https://elko.craigslist.org/", "Las Vegas": "https://lasvegas.craigslist.org/", "Reno / Tahoe": "https://reno.craigslist.org/"}, "New Hampshire": {"New Hampshire": "https://nh.craigslist.org/"}, "New Jersey": {"Central Nj": "https://cnj.craigslist.org/", "Jersey Shore": "https://jerseyshore.craigslist.org/", "North Jersey": "https://newjersey.craigslist.org/", "South Jersey": "https://southjersey.craigslist.org/"}, "New Mexico": {"Albuquerque": "https://albuquerque.craigslist.org/", "Clovis / Portales": "https://clovis.craigslist.org/", "Farmington": "https://farmington.craigslist.org/", "Las Cruces": "https://lascruces.craigslist.org/", "Roswell / Carlsbad": "https://roswell.craigslist.org/", "Santa Fe / Taos": "https://santafe.craigslist.org/"}, "New York": {"Albany": "https://albany.craigslist.org/", "Binghamton": "https://binghamton.craigslist.org/", "Buffalo": "https://buffalo.craigslist.org/", "Catskills": "https://catskills.craigslist.org/", "Chautauqua": "https://chautauqua.craigslist.org/", "Elmira-corning": "https://elmira.craigslist.org/", "Finger Lakes": "https://fingerlakes.craigslist.org/", "Glens Falls": "https://glensfalls.craigslist.org/", "Hudson Valley": "https://hudsonvalley.craigslist.org/", "Ithaca": "https://ithaca.craigslist.org/", "Long Island": "https://longisland.craigslist.org/", "New York City": "https://newyork.craigslist.org/", "Oneonta": "https://oneonta.craigslist.org/", "Plattsburgh-adirondacks": "https://plattsburgh.craigslist.org/", "Potsdam-canton-massena": "https://potsdam.craigslist.org/", "Rochester": "https://rochester.craigslist.org/", "Syracuse": "https://syracuse.craigslist.org/", "Twin Tiers Ny/pa": "https://twintiers.craigslist.org/", "Utica-rome-oneida": "https://utica.craigslist.org/", "Watertown": "https://watertown.craigslist.org/"}, "North Carolina": {"Asheville": "https://asheville.craigslist.org/", "Boone": "https://boone.craigslist.org/", "Charlotte": "https://charlotte.craigslist.org/", "Eastern Nc": "https://eastnc.craigslist.org/", "Fayetteville": "https://fayetteville.craigslist.org/", "Greensboro": "https://greensboro.craigslist.org/", "Hickory / Lenoir": "https://hickory.craigslist.org/", "Jacksonville": "https://onslow.craigslist.org/", "Outer Banks": "https://outerbanks.craigslist.org/", "Raleigh / Durham / Ch": "https://raleigh.craigslist.org/", "Wilmington": "https://wilmington.craigslist.org/", "Winston-salem": "https://winstonsalem.craigslist.org/"}, "North Dakota": {"Bismarck": "https://bismarck.craigslist.org/", "Fargo / Moorhead": "https://fargo.craigslist.org/", "Grand Forks": "https://grandforks.craigslist.org/", "North Dakota": "https://nd.craigslist.org/"}, "Ohio": {"Akron / Canton": "https://akroncanton.craigslist.org/", "Ashtabula": "https://ashtabula.craigslist.org/", "Athens": "https://athensohio.craigslist.org/", "Chillicothe": "https://chillicothe.craigslist.org/", "Cincinnati": "https://cincinnati.craigslist.org/", "Cleveland": "https://cleveland.craigslist.org/", "Columbus": "https://columbus.craigslist.org/", "Dayton / Springfield": "https://dayton.craigslist.org/", "Lima / Findlay": "https://limaohio.craigslist.org/", "Mansfield": "https://mansfield.craigslist.org/", "Sandusky": "https://sandusky.craigslist.org/", "Toledo": "https://toledo.craigslist.org/", "Tuscarawas Co": "https://tuscarawas.craigslist.org/", "Youngstown": "https://youngstown.craigslist.org/", "Zanesville / Cambridge": "https://zanesville.craigslist.org/"}, "Oklahoma": {"Lawton": "https://lawton.craigslist.org/", "Northwest Ok": "https://enid.craigslist.org/", "Oklahoma City": "https://oklahomacity.craigslist.org/", "Stillwater": "https://stillwater.craigslist.org/", "Tulsa": "https://tulsa.craigslist.org/"}, "Oregon": {"Bend": "https://bend.craigslist.org/", "Corvallis/albany": "https://corvallis.craigslist.org/", "East Oregon": "https://eastoregon.craigslist.org/", "Eugene": "https://eugene.craigslist.org/", "Klamath Falls": "https://klamath.craigslist.org/", "Medford-ashland": "https://medford.craigslist.org/", "Oregon Coast": "https://oregoncoast.craigslist.org/", "Portland": "https://portland.craigslist.org/", "Roseburg": "https://roseburg.craigslist.org/", "Salem": "https://salem.craigslist.org/"}, "Pennsylvania": {"Altoona-johnstown": "https://altoona.craigslist.org/", "Cumberland Valley": "https://chambersburg.craigslist.org/", "Erie": "https://erie.craigslist.org/", "Harrisburg": "https://harrisburg.craigslist.org/", "Lancaster": "https://lancaster.craigslist.org/", "Lehigh Valley": "https://allentown.craigslist.org/", "Meadville": "https://meadville.craigslist.org/", "Philadelphia": "https://philadelphia.craigslist.org/", "Pittsburgh": "https://pittsburgh.craigslist.org/", "Poconos": "https://poconos.craigslist.org/", "Reading": "https://reading.craigslist.org/", "Scranton / Wilkes-barre": "https://scranton.craigslist.org/", "State College": "https://pennstate.craigslist.org/", "Williamsport": "https://williamsport.craigslist.org/", "York": "https://york.craigslist.org/"}, "Rhode Island": {"Rhode Island": "https://providence.craigslist.org/"}, "South Carolina": {"Charleston": "https://charleston.craigslist.org/", "Columbia": "https://columbia.craigslist.org/", "Florence": "https://florencesc.craigslist.org/", "Greenville / Upstate": "https://greenville.craigslist.org/", "Hilton Head": "https://hiltonhead.craigslist.org/", "Myrtle Beach": "https://myrtlebeach.craigslist.org/"}, "South Dakota": {"Northeast Sd": "https://nesd.craigslist.org/", "Pierre / Central Sd": "https://csd.craigslist.org/", "Rapid City / West Sd": "https://rapidcity.craigslist.org/", "Sioux Falls / Se Sd": "https://siouxfalls.craigslist.org/", "South Dakota": "https://sd.craigslist.org/"}, "Tennessee": {"Chattanooga": "https://chattanooga.craigslist.org/", "Clarksville": "https://clarksville.craigslist.org/", "Cookeville": "https://cookeville.craigslist.org/", "Jackson": "https://jacksontn.craigslist.org/", "Knoxville": "https://knoxville.craigslist.org/", "Memphis": "https://memphis.craigslist.org/", "Nashville": "https://nashville.craigslist.org/", "Tri-cities": "https://tricities.craigslist.org/"}, "Texas": {"Abilene": "https://abilene.craigslist.org/", "Amarillo": "https://amarillo.craigslist.org/", "Austin": "https://austin.craigslist.org/", "Beaumont / Port Arthur": "https://beaumont.craigslist.org/", "Brownsville": "https://brownsville.craigslist.org/", "College Station": "https://collegestation.craigslist.org/", "Corpus Christi": "https://corpuschristi.craigslist.org/", "Dallas / Fort Worth": "https://dallas.craigslist.org/", "Deep East Texas": "https://nacogdoches.craigslist.org/", "Del Rio / Eagle Pass": "https://delrio.craigslist.org/", "El Paso": "https://elpaso.craigslist.org/", "Galveston": "https://galveston.craigslist.org/", "Houston": "https://houston.craigslist.org/", "Killeen / Temple / Ft Hood": "https://killeen.craigslist.org/", "Laredo": "https://laredo.craigslist.org/", "Lubbock": "https://lubbock.craigslist.org/", "Mcallen / Edinburg": "https://mcallen.craigslist.org/", "Odessa / Midland": "https://odessa.craigslist.org/", "San Angelo": "https://sanangelo.craigslist.org/", "San Antonio": "https://sanantonio.craigslist.org/", "San Marcos": "https://sanmarcos.craigslist.org/", "Southwest Tx": "https://bigbend.craigslist.org/", "Texoma": "https://texoma.craigslist.org/", "Tyler / East Tx": "https://easttexas.craigslist.org/", "Victoria": "https://victoriatx.craigslist.org/", "Waco": "https://waco.craigslist.org/", "Wichita Falls": "https://wichitafalls.craigslist.org/"}, "Utah": {"Logan": "https://logan.craigslist.org/", "Ogden-clearfield": "https://ogden.craigslist.org/", "Provo / Orem": "https://provo.craigslist.org/", "Salt Lake City": "https://saltlakecity.craigslist.org/", "St George": "https://stgeorge.craigslist.org/"}, "Vermont": {"Vermont": "https://vermont.craigslist.org/"}, "Virginia": {"Charlottesville": "https://charlottesville.craigslist.org/", "Danville": "https://danville.craigslist.org/", "Fredericksburg": "https://fredericksburg.craigslist.org/", "Hampton Roads": "https://norfolk.craigslist.org/", "Harrisonburg": "https://harrisonburg.craigslist.org/", "Lynchburg": "https://lynchburg.craigslist.org/", "New River Valley": "https://blacksburg.craigslist.org/", "Richmond": "https://richmond.craigslist.org/", "Roanoke": "https://roanoke.craigslist.org/", "Southwest Va": "https://swva.craigslist.org/", "Winchester": "https://winchester.craigslist.org/"}, "Washington": {"Bellingham": "https://bellingham.craigslist.org/", "Kennewick-pasco-richland": "https://kpr.craigslist.org/", "Moses Lake": "https://moseslake.craigslist.org/", "Olympic Peninsula": "https://olympic.craigslist.org/", "Pullman / Moscow": "https://pullman.craigslist.org/", "Seattle-tacoma": "https://seattle.craigslist.org/", "Skagit / Island / Sji": "https://skagit.craigslist.org/", "Spokane / Coeur D'alene": "https://spokane.craigslist.org/", "Wenatchee": "https://wenatchee.craigslist.org/", "Yakima": "https://yakima.craigslist.org/"}, "West Virginia": {"Charleston": "https://charlestonwv.craigslist.org/", "Eastern Panhandle": "https://martinsburg.craigslist.org/", "Huntington-ashland": "https://huntington.craigslist.org/", "Morgantown": "https://morgantown.craigslist.org/", "Northern Panhandle": "https://wheeling.craigslist.org/", "Parkersburg-marietta": "https://parkersburg.craigslist.org/", "Southern Wv": "https://swv.craigslist.org/", "West Virginia (old)": "https://wv.craigslist.org/"}, "Wisconsin": {"Appleton-oshkosh-fdl": "https://appleton.craigslist.org/", "Eau Claire": "https://eauclaire.craigslist.org/", "Green Bay": "https://greenbay.craigslist.org/", "Janesville": "https://janesville.craigslist.org/", "Kenosha-racine": "https://racine.craigslist.org/", "La Crosse": "https://lacrosse.craigslist.org/", "Madison": "https://madison.craigslist.org/", "Milwaukee": "https://milwaukee.craigslist.org/", "Northern Wi": "https://northernwi.craigslist.org/", "Sheboygan": "https://sheboygan.craigslist.org/", "Wausau": "https://wausau.craigslist.org/"}, "Wyoming": {"Wyoming": "https://wyoming.craigslist.org/"}, "Territories": {"Guam-micronesia": "https://micronesia.craigslist.org/", "Puerto Rico": "https://puertorico.craigslist.org/", "U.s. Virgin Islands": "https://virgin.craigslist.org/"}}
+          window.onload = function() {
+            var statesSel = document.getElementById("states");
+            var citiesSel = document.getElementById("cities");
+            var chapterSel = document.getElementById("chapter");
+            var linksSel = document.getElementById("clinks").getElementsByTagName("a")
+            var sublinkSel = document.ge
+            var stateselect = 'something'
+    
+            for (var x in statesObject) {
+              statesSel.options[statesSel.options.length] = new Option(x, x);
+            }
+            statesSel.onchange = function() {
+              stateselect = this.value
+              //empty Chapters- and Topics- dropdowns
+          //     chapterSel.length = 1;
+              citiesSel.length = 1;
+              //display correct values
+              for (var y in statesObject[this.value]) {
+                citiesSel.options[citiesSel.options.length] = new Option(y, y);
+              }
+            }
+            citiesSel.onchange = function() {
+              // console.log(linksSel[1])
+                temp = this.value
+              for (var i in linksSel) {
+                if (i.length > 3) {
+                  // console.log('in the if')
+                  continue
+                }
+                else {
+                  console.log(i)
+                  console.log(linksSel[i])
+                  linksSel[i].setAttribute('href', statesObject[stateselect][temp])
+                  currlink = statesObject[stateselect][temp]
+                }
+                console.log(typeof(i))
+    
+              }
+              // // console.log("Lun")
+              // for (var x in linksSel.item()) {
+              //   // console.log('Lulla')
+              //   console.log(x)
+            
+            }
+          
+          }
+    
+          function displayradioValue() { 
+                var linksSel = document.getElementById("clinks").getElementsByTagName("a");
+                var ele = document.getElementsByName('sublink'); 
+                  
+                for(i = 0; i < ele.length; i++) {
+                  // console.log(ele[i].checked) 
+                    if(ele[i].checked == true) {document.getElementById("result").innerHTML
+                            = "Searching in: "+ele[i].value;
+                          var sublinkset = ele[i].value
+                          // console.log(sublinkset)
+                        }
+                        }
+    
+                for (var i in linksSel) {
+                if (i.length > 3) {
+                  // console.log('in the if')
+                  // console.log(i)
+                  continue
+                }
+                else {
+                  console.log(sublinkset)
+                  linksSel[i].setAttribute('href', currlink)
+                  if (sublinkset == 'Community') {
+                  var temp = linksSel[i].getAttribute('href')
+                  var addon = 'search/pet?query='
+                  var search = linksSel[i].innerText
+                  console.log(temp + addon + search)
+                  linksSel[i].setAttribute('href', temp + addon + search)
+                  // console.log(i)
+                  // console.log(linksSel[i].getAttribute('href'))
+                  // linksSel[i].setAttribute('href', statesObject[stateselect][temp])
+                }
+                else {
+                  var temp = linksSel[i].getAttribute('href')
+                  var addon = 'search/pet?query='
+                  var addon2 = 'search/pas?query='
+                  var search = linksSel[i].innerText
+                  console.log(temp + addon2 + search)
+                  linksSel[i].setAttribute('href', temp + addon2 + search)
+                }
+                }
+                } 
+            } 
+    
+          </script>
+      
+  
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
