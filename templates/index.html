@@ -11,7 +11,7 @@
     <title>Save the Pets</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='mbr-80x72.png')}}" type="image/x-icon">
   </head>
-  <body style= "background-image: url({{ url_for('static', filename='1.jpg')}}); background-repeat: no-repeat; background-position: center; background-size: cover;">
+  <body style= "background-image: url({{ url_for('static', filename='1.jpg')}}); background-repeat: no-repeat; background-position: center; background-attachment: fixed;  background-size: cover; height: 100%;">
 
       <!-- Top Nav Bar-->
       <!-- Image and text style from Bootstap  background-color: #DBA8AC; @media (min.width:768px); height:100vh;-->
@@ -82,69 +82,8 @@
               </div>   
             </div>     
               <!-- Grid Box-->
-              <style>
-                .button{
-                  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-                  background-color: transparent;
-                  text-decoration: none; 
-                  text-align: center;
-                  color: black;
-                  display: inline-block;
-                  padding: 3%;                  
-                  cursor: pointer;
-                  font-size: 2vw;
-                }
-                .button0{
-                  border-top-left-radius: 12%; 
-                  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-                  background-color: transparent;
-                  text-decoration: none; 
-                  color:black;
-                  text-align: center;
-                  display: inline-block;
-                  padding: 3%;
-                  cursor: pointer;
-                  font-size: 2vw;
-                }
-                .button1{
-                  border-top-right-radius: 12%; 
-                  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-                  background-color: transparent;
-                  text-decoration: none; 
-                  color:black;
-                  text-align: center;
-                  display: inline-block;
-                  padding: 3%;
-                  cursor: pointer;
-                  font-size: 2vw;
-                }
-                .button2{
-                  border-bottom-right-radius: 12%; 
-                  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-                  background-color: transparent;
-                  text-decoration: none; 
-                  color:black;
-                  text-align: center;
-                  display: inline-block;
-                  padding: 3%;
-                  cursor: pointer;
-                  font-size: 2vw;
-                }
-                .button3{
-                  border-bottom-left-radius: 12%; 
-                  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-                  background-color: transparent;
-                  text-decoration: none; 
-                  color:black;
-                  text-align: center;
-                  display: inline-block;
-                  padding: 3%;
-                  cursor: pointer;
-                  font-size: 2vw;
-                }                
-              </style>
               
-            <div class="col-lg col-sm col-md col-lg-7" style="border-top: 1px solid #29274C;"> 
+            <div class="col-lg col-sm col-md col-lg-7"> 
               <div class= "rightside" style= "height: 100%; width: 100%; padding-top: 15%; padding-bottom: 15%; text-align: center; align-content: flex-end;">             
                         <div id="clinks" class="row-cols-4 g-5">
                             <a target="_blank" class= "col btn-outline-light button0" href='https://www.craigslist.org'>AKC</a>
@@ -164,6 +103,90 @@
             </div>            
           </div>  
         </section>
+
+        <!--**********************CSS**********************-->
+        <style>         
+          .button{
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            background-color: transparent;
+            text-decoration: none; 
+            text-align: center;
+            color: black;
+            display: inline-block;
+            padding: 3%;                  
+            cursor: pointer;
+            font-size: 2vw;      
+          }
+          .button0{
+            border-top-left-radius: 12%; 
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            background-color: transparent;
+            text-decoration: none; 
+            color:black;
+            text-align: center;
+            display: inline-block;
+            padding: 3%;
+            cursor: pointer;
+            font-size: 2vw;
+          }
+          .button1{
+            border-top-right-radius: 12%; 
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            background-color: transparent;
+            text-decoration: none; 
+            color:black;
+            text-align: center;
+            display: inline-block;
+            padding: 3%;
+            cursor: pointer;
+            font-size: 2vw;
+          }
+          .button2{
+            border-bottom-right-radius: 12%; 
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            background-color: transparent;
+            text-decoration: none; 
+            color:black;
+            text-align: center;
+            display: inline-block;
+            padding: 3%;
+            cursor: pointer;
+            font-size: 2vw;
+          }
+          .button3{
+            border-bottom-left-radius: 12%; 
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            background-color: transparent;
+            text-decoration: none; 
+            color:black;
+            text-align: center;
+            display: inline-block;
+            padding: 3%;
+            cursor: pointer;
+            font-size: 2vw;
+          }                
+          @media screen and (max-width: 768px) {
+            .button, .button0, .button1, .button2, .button3 {
+              font-size: 3vw;              
+              background-color: #d3d3d3;
+            }
+          }
+          @media screen and (max-width: 768px) {
+            .button:hover, .button0:hover, .button1:hover, .button2:hover, .button3:hover {             
+              background-color:#F7FFF7;
+              color:#29274C;
+            }
+          }
+          /* @media screen and (max-width: 768px) {
+            body {
+              background-position-y: bottom;            
+            }
+          } */
+          </style>
+
+ 
+ 
+            <!--**********************Javascript**********************-->
 
         <script>
           var currlink = 'something'
