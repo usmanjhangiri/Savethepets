@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+</head>
+<body style= "background-image: url({{ url_for('static', filename='1.jpg')}}); background-repeat: no-repeat; background-position: center; background-attachment: fixed;  background-size: cover; height: 100%;">
+    <div class="container">
+    <form method="POST", action="/login" style="text-align: center;">
+        <div class="form-row">
+          <div class="col">
+            <input type="text" class="form-control" id="email" placeholder="Enter Username" name="email" style="width: 50%; padding: 2%;">
+          </div>
+          <br>
+          <div class="col">
+            <input type="password" class="form-control" placeholder="Enter Password" name="pswd" style="width: 50%; padding: 2%;">
+          </div>
+          <br>
+          <input type="submit" value="Login" class="btn" style= "background-color: #29274C;
+          border: none;
+          color: white;
+          padding: 16px 32px;
+          text-decoration: none;
+          margin: 4px 2px;
+          cursor: pointer;
+          float: center;" onclick="####" />
+        </div>
+      </form>
+    </div>
+</body>
+</html>
