@@ -86,7 +86,7 @@
             <div class="col-lg col-sm col-md col-lg-7"> 
               <div class= "rightside" style= "height: 100%; width: 100%; padding-top: 15%; padding-bottom: 15%; text-align: center; align-content: flex-end;">             
                         <div id="clinks" class="row-cols-4 g-5">
-                            <a target="_blank" class= "col btn-outline-light button0" href='https://www.craigslist.org'>AKC</a>
+                            <!-- <a target="_blank" class= "col btn-outline-light button0" href='https://www.craigslist.org'>AKC</a>
                             <a target="_blank" class= "col btn-outline-light button" href='https://www.craigslist.org'>CKC</a>
                             <a target="_blank" class= "col btn-outline-light button1" href='https://www.craigslist.org'>STUD</a>
                             <a target="_blank" class= "col btn-outline-light button" href='https://www.craigslist.org'>dewormed</a>
@@ -97,7 +97,10 @@
                             <a target="_blank" class= "col btn-outline-light button" href='https://www.craigslist.org'>Rehoming</a>
                             <a target="_blank" class= "col btn-outline-light button3" href='https://www.craigslist.org'>Rehome</a>
                             <a target="_blank" class= "col btn-outline-light button" href='https://www.craigslist.org'>Re-home</a>
-                            <a target="_blank" class= "col btn-outline-light button2" href='https://www.craigslist.org'>Re-homing</a>
+                            <a target="_blank" class= "col btn-outline-light button2" href='https://www.craigslist.org'>Re-homing</a> -->
+                            {% for i in data %}
+                            <a target="_blank" class= "col btn-outline-light button2" href='https://www.craigslist.org'>{{i.Keyword}}</a>
+                            {% endfor %}
                         </div>
                 </div> 
             </div>            
